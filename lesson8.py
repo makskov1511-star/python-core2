@@ -1,51 +1,28 @@
-def product(a: int, b: int):
-    if a > b:
-        a, b = b, a
-    i = 1
-    for i in range(a,b+1):
-        i += 1
+def sort_numbers(numbers):
+    even_numbers = []
+    odd_numbers = []
+    positive_numbers = []
+    negative_numbers = []
 
-    return i
+    for num in numbers:
+        if num % 2 == 0:
+            even_numbers.append(num)
+        else:
+            odd_numbers.append(num)
 
-print(product(1,5))
+        if num > 0:
+            positive_numbers.append(num)
+        else:
+            negative_numbers.append(num)
 
-
-
-def max_of_list(list):
-    max = list[0]
-    for i in list:
-        if i > max:
-            max = i
-
-    return max
-
-print(max_of_list([10,11,7,9]))
+    return even_numbers, odd_numbers, positive_numbers, negative_numbers
 
 
+numbers = [-5, -4, -1, 0, 2, 3, 6, 9]
 
+even, odd, positive, negative = sort_numbers(numbers)
 
-def sum_and_avg(list):
-    i = 0
-    for a in list:
-        i+=a
-        avg = i/len(list)
-    return i,avg
-
-print(sum_and_avg([1,2,3,4]))
-
-
-
-
-def pos_neg_even_odd(list):
-    i = 0
-    for i in list:
-        if i % 2 == 0:
-            print(f"{i} is even")
-        if i % 2 == 1:
-            print(f"{i} is odd")
-        if i < 0:
-            print(f"{i} is negative")
-        if i > 0:
-            print(f"{i} is positive")
-
-print(pos_neg_even_odd([4,8,0,-7]))
+print("Парні числа:", even)
+print("Непарні числа:", odd)
+print("Позитивні числа:", positive)
+print("Негативні числа:", negative)
